@@ -1,13 +1,11 @@
 import { Component } from "../../../util/component.js";
 
-export class Contacts extends Component {
-
+export class Code extends Component {
     constructor() {
-        super('section', 'contacts', 'Contacts');
+        super('section', 'code', 'code');
     }
 
     destroy() {
         super.destroy();
     }
-
 }

@@ -1,47 +1,63 @@
 import { Header } from './components/common/header/Header.js';
 import { About } from './components/section/about/About.js';
 import { Contacts } from './components/section/contacts/Contacts.js';
+import { Skills } from './components/section/skills/Skills.js';
+import { Footer } from './components/common/footer/Footer.js';
+import { Projects } from './components/section/projects/Projects.js';
+import { Code } from './components/section/code/Code.js';
+import { Education } from './components/section/education/Education.js';
+import { Languages } from './components/section/languages/Languages.js';
 
 export class App {
     header;
     main;
-    sectionList;
+    footer;
+
     sectionMap;
+    sectionList;
     currentSectionName;
-    currentLoadSection;
+    currentSectionComponent;
 
     constructor() {
         this.header = document.querySelector('.header');
-        this.main = document.querySelector('.main');
-        this.isSectionOnLoad = false;
-        this.sectionList = [];
+        this.main = document.querySelector('.main__wrapper');
+        this.footer = document.querySelector('.footer');
+
         this.sectionMap = new Map([
             ['about', About],
+            ['skills', Skills],
+            ['projects', Projects],
+            ['code', Code],
+            ['education', Education],
+            ['languages', Languages],
             ['contacts', Contacts],
         ]);
+        this.sectionList = [];
         this.sectionMap.forEach((el, key) => this.sectionList.push(key));
         this.currentSectionName = this.sectionList[0];
-        this.currentLoadSection = null;
+        this.currentSectionComponent = null;
     }
 
     drawApp() {
         const headerFill = new Header(this.changeSection, this.sectionList);
-        this.header.append(headerFill.header.node);
+        this.header.append(headerFill.node);
+        const footerFill = new Footer();
+        this.footer.append(footerFill.node);
+
         this.drawSection(this.currentSectionName);
     }
 
     drawSection(sectionName) {
-        if (this.currentLoadSection !== null) {
-            this.currentLoadSection.destroy();
+        if (this.currentSectionComponent !== null) {
+            this.currentSectionComponent.destroy();
         }
 
         const component = this.sectionMap.get(sectionName);
         const section = new component();
-        this.currentLoadSection = section;
+        this.currentSectionComponent = section;
         this.currentSectionName = sectionName;
-        
-        this.main.innerHTML = '';
-        this.main.append(section.section.node);
+
+        this.main.append(section.node);
     }
 
     changeSection = (sectionName) => {

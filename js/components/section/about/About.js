@@ -1,13 +1,15 @@
 import { Component } from "../../../util/component.js";
 
-export class About {
-    section;
-    
+export class About extends Component {
+    sky;
+
     constructor() {
-        this.section = new Component('section', 'about', 'About');
+        super('section', 'about');
+        this.sky = new Component('div', 'about__sky');
+        this.node.append(this.sky.node);
     }
 
     destroy() {
-        this.section.destroy();
+        super.destroy();
     }
 }
