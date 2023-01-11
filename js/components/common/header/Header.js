@@ -1,6 +1,10 @@
 import { Component } from "../../../util/component.js";
+import { logo } from "../../../../assets/svg/logo.js";
 
 export class Header extends Component {
+    logoWrap;
+    logo;
+    logoTitle;
     nav;
     navList;
     changeSection;
@@ -8,10 +12,15 @@ export class Header extends Component {
     constructor(changeSection, sectionList) {
         super('div', 'header-wrap', '');
         this.changeSection = changeSection;
+        this.logoWrap = new Component('div', 'header-wrap__logo-wrap');
+        this.logo = new Component('div', 'header-wrap__logo-wrap__logo');
+        this.logo.node.innerHTML = logo;
+        this.logo.node.onclick = (e) => this.onclick(e, 'about');
+        this.logoTitle = new Component('h1', 'header-wrap__logo-wrap__title', 'Vashchayeva Maryia');
+
         this.nav = new Component('nav', 'header-wrap__nav', '');
         this.navList = [];
         sectionList.forEach((name, i) => {
-
             const li = new Component('li', 'header-wrap__nav__item', name);
             li.node.onclick = (e) => this.onclick(e, name);
             this.navList.push(li.node);
@@ -21,11 +30,15 @@ export class Header extends Component {
             this.nav.node.append(li.node);
         });
 
-        this.node.append(this.nav.node);
+        this.logoWrap.node.append(this.logo.node, this.logoTitle.node);
+        this.node.append(this.logoWrap.node, this.nav.node);
     }
 
     onclick = (e, name) => {
-        const li = e.target;
+        let li = e.target;
+        if (li.tagName !== 'LI') {
+            li = this.navList[0];
+        }
         this.navList.forEach(el => el.classList.remove('active-nav-item'));
         li.classList.add('active-nav-item');
         this.changeSection(name);

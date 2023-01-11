@@ -31,6 +31,8 @@ html {
 
 .header {
     width: 100%;
+    display: flex;
+    justify-content: center;
 }
 
 .main {
@@ -39,9 +41,7 @@ html {
 }
 
 .main__wrapper {
-    max-width: 1200px;
     width: 100%;
-    padding: 20px;
 }
 
 .footer {
