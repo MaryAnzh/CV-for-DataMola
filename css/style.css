@@ -1,0 +1,27 @@
+@import 'utils/reset.css';
+@import 'utils/variable.css';
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+.cv {
+    width: 100%;
+    color: var(--mainColorFont);
+    font-family: Poppins, Arial, Helvetica, sans-serif;
+    font-weight: 100;
+    font-size: 1em;
+    line-height: 1.8;
+}
+
+.wrapper {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: var(--mainColor);
+}
