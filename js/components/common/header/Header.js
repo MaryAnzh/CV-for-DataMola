@@ -1,14 +1,12 @@
 import { Component } from "../../../util/component.js";
 
-export class Header {
-    header;
+export class Header extends Component {
     nav;
     navList;
 
     constructor(changeSection, sectionList) {
-        this.header = new Component('div', 'header-wrap', '');
+        super('div', 'header-wrap', '');
         this.nav = new Component('nav', 'header-wrap__nav', '');
-        this.header.node.append(this.nav.node);
         this.navList = [];
         sectionList.forEach(name => {
             const li = new Component('li', 'header-wrap__nav__item', name);
@@ -16,10 +14,12 @@ export class Header {
             this.navList.push(li.node);
             this.nav.node.append(li.node);
         });
+
+        this.node.append(this.nav.node);
     }
 
     destroy() {
-        this.header.destroy();
+        super.destroy();
         this.navList.forEach(el => el.onclick = null);
     }
 
