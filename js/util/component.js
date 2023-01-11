@@ -2,21 +2,22 @@ export class Component {
     node;
 
     constructor(tagName, className, textContent, atr) {
-        this.node = document.createElement(tagName);
+        const element = document.createElement(tagName);
         if (Array.isArray(className)) {
-            className.forEach(className => this.node.classList.add(className));
+            className.forEach(className => element.classList.add(className));
         }
         if (typeof className === 'string') {
-            this.className = className;
+            element.className = className;
         }
         if (textContent !== '') {
-            this.node.textContent = textContent;
+            element.textContent = textContent;
         }
         if (atr) {
             for (let key in atr) {
-                this.node.setAttribute(key, atr[key]);
+                element.setAttribute(key, atr[key]);
             }
         }
+        this.node = element;
     }
 
     destroy() {
