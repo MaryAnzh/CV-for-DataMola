@@ -1,7 +1,6 @@
 @import 'util/reset.css';
 @import 'util/variable.css';
-
-@import '../js/components/header/Header.css';
+@import 'components.css';
 
 * {
     box-sizing: border-box;
