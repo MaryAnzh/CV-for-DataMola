@@ -1,25 +1,51 @@
 import { Component } from "../../../util/component.js";
+import { logo } from "../../../../assets/svg/logo.js";
 
-export class Header {
-    header;
+export class Header extends Component {
+    logoWrap;
+    logo;
+    logoTitle;
     nav;
     navList;
+    changeSection;
 
     constructor(changeSection, sectionList) {
-        this.header = new Component('div', 'header-wrap', '');
+        super('div', 'header-wrap', '');
+        this.changeSection = changeSection;
+        this.logoWrap = new Component('div', 'header-wrap__logo-wrap');
+        this.logo = new Component('div', 'header-wrap__logo-wrap__logo');
+        this.logo.node.innerHTML = logo;
+        this.logo.node.onclick = (e) => this.onclick(e, 'about');
+        this.logoTitle = new Component('h1', 'header-wrap__logo-wrap__title', 'Vashchayeva Maryia');
+
         this.nav = new Component('nav', 'header-wrap__nav', '');
-        this.header.node.append(this.nav.node);
         this.navList = [];
-        sectionList.forEach(name => {
+        sectionList.forEach((name, i) => {
             const li = new Component('li', 'header-wrap__nav__item', name);
-            li.node.onclick = () => changeSection(name);
+            li.node.onclick = (e) => this.onclick(e, name);
             this.navList.push(li.node);
+            if (i === 0) {
+                li.node.classList.add('active-nav-item');
+            }
             this.nav.node.append(li.node);
         });
+
+        this.logoWrap.node.append(this.logo.node, this.logoTitle.node);
+        this.node.append(this.logoWrap.node, this.nav.node);
+    }
+
+    onclick = (e, name) => {
+        let li = e.target;
+        if (li.tagName !== 'LI') {
+            li = this.navList[0];
+        }
+        this.navList.forEach(el => el.classList.remove('active-nav-item'));
+        li.classList.add('active-nav-item');
+        this.changeSection(name);
     }
 
     destroy() {
-        this.header.destroy();
+        super.destroy();
         this.navList.forEach(el => el.onclick = null);
     }
 
