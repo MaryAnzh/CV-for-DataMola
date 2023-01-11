@@ -1,5 +1,20 @@
 .header-wrap {
     width: 100%;
     padding: 10px;
+    display: flex;
+    justify-content: center;
     background: var(--mainColorDark2);
+}
+
+.header-wrap__nav {
+    max-width: 500px;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    list-style: none;
+}
+
+.header-wrap__nav__item {
+    color: white;
+    cursor: pointer;
 }
