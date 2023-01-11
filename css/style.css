@@ -1,5 +1,7 @@
-@import 'utils/reset.css';
-@import 'utils/variable.css';
+@import 'util/reset.css';
+@import 'util/variable.css';
+
+@import '../js/components/header/Header.css';
 
 * {
     box-sizing: border-box;
@@ -24,4 +26,8 @@ html {
     flex-direction: column;
     align-items: center;
     color: var(--mainColor);
+}
+
+.header {
+    width: 100%;
 }
