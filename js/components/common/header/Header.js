@@ -7,6 +7,7 @@ export class Header extends Component {
     logoTitle;
     nav;
     navList;
+    contacts;
     changeSection;
 
     constructor(changeSection, sectionList) {
@@ -22,23 +23,27 @@ export class Header extends Component {
         this.navList = [];
         sectionList.forEach((name, i) => {
             const li = new Component('li', 'header-wrap__nav__item', name);
-            li.node.onclick = (e) => this.onclick(e, name);
+            li.node.onclick = (e) => this.navToSectionOnclick(e, name);
             this.navList.push(li.node);
             if (i === 0) {
                 li.node.classList.add('active-nav-item');
             }
+            
             this.nav.node.append(li.node);
         });
-
+        this.contacts = new Component('li', 'contacts-nav-item', 'Contacts');
+        this.nav.node.append(this.contacts.node);
+        
         this.logoWrap.node.append(this.logo.node, this.logoTitle.node);
         this.node.append(this.logoWrap.node, this.nav.node);
     }
 
-    onclick = (e, name) => {
+    navToSectionOnclick = (e, name) => {
         let li = e.target;
         if (li.tagName !== 'LI') {
             li = this.navList[0];
         }
+
         this.navList.forEach(el => el.classList.remove('active-nav-item'));
         li.classList.add('active-nav-item');
         this.changeSection(name);
@@ -47,6 +52,7 @@ export class Header extends Component {
     destroy() {
         super.destroy();
         this.navList.forEach(el => el.onclick = null);
+        this.contacts.node.onclick = null;
     }
 
 }

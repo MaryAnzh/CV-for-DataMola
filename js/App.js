@@ -7,11 +7,14 @@ import { Projects } from './components/section/projects/Projects.js';
 import { Code } from './components/section/code/Code.js';
 import { Education } from './components/section/education/Education.js';
 import { Languages } from './components/section/languages/Languages.js';
+import { Component } from './util/component.js';
 
 export class App {
     header;
     main;
     footer;
+    contacts;
+    isContactsShow;
 
     sectionMap;
     sectionList;
@@ -22,6 +25,7 @@ export class App {
         this.header = document.querySelector('.header');
         this.main = document.querySelector('.main__wrapper');
         this.footer = document.querySelector('.footer');
+        this.contacts = new Contacts();
 
         this.sectionMap = new Map([
             ['about', About],
@@ -30,12 +34,12 @@ export class App {
             ['code', Code],
             ['education', Education],
             ['languages', Languages],
-            ['contacts', Contacts],
         ]);
         this.sectionList = [];
         this.sectionMap.forEach((el, key) => this.sectionList.push(key));
         this.currentSectionName = this.sectionList[0];
         this.currentSectionComponent = null;
+        this.isContactsShow = false;
     }
 
     drawApp() {
@@ -43,7 +47,8 @@ export class App {
         this.header.append(headerFill.node);
         const footerFill = new Footer();
         this.footer.append(footerFill.node);
-
+        this.main.append(this.contacts.node);
+        
         this.drawSection(this.currentSectionName);
     }
 
@@ -62,5 +67,11 @@ export class App {
 
     changeSection = (sectionName) => {
         this.drawSection(sectionName);
+    }
+
+    showContacts = () => {
+        if (!this.isContactsShow) {
+
+        }
     }
 }
