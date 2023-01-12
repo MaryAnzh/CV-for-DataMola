@@ -38,6 +38,8 @@ html {
 .main {
     width: 100%;
     height: -webkit-fill-available;
+    position: relative;
+    overflow: hidden;
 }
 
 .main__wrapper {
