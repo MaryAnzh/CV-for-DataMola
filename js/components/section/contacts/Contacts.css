@@ -5,7 +5,9 @@
     padding: 20px 20px 30px 30px;
     background: white;
     border-bottom-left-radius: var(--baseBorderRadius);
-    box-shadow: -3px 3px 5px rgba(gray, 0.4);
+    box-shadow: -3px 3px 5px lightgray;
+    transform: translateX(110%);
+    transition: .3s;
 }
 
 .contacts__list__item {
@@ -17,7 +19,7 @@
 }
 
 .contacts__list__item::first-letter,
-.contacts__list__item__sub-list__item::first-letter  {
+.contacts__list__item__sub-list__item::first-letter {
     text-transform: uppercase;
 }
 
@@ -25,3 +27,21 @@
     padding-left: 10px;
     line-height: 1.5;
 }
+
+.show-contacts {
+    animation: show-contacts .3s forwards;
+}
+
+.hide-contacts {
+    animation: show-contacts .3s forwards reverse;
+}
+
+@keyframes show-contacts {
+    0% {
+        transform: translateX(100%);
+    }
+
+    100% {
+        transform: translateX(0p%;
+        }
+    }

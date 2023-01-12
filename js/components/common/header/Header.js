@@ -9,14 +9,16 @@ export class Header extends Component {
     navList;
     contacts;
     changeSection;
+    showHideContacts;
+    isShowContacts;
 
-    constructor(changeSection, sectionList) {
+    constructor(changeSection, sectionList, showHideContacts) {
         super('div', 'header-wrap', '');
         this.changeSection = changeSection;
         this.logoWrap = new Component('div', 'header-wrap__logo-wrap');
         this.logo = new Component('div', 'header-wrap__logo-wrap__logo');
         this.logo.node.innerHTML = logo;
-        this.logo.node.onclick = (e) => this.onclick(e, 'about');
+        this.logo.node.onclick = (e) => this.navToSectionOnclick(e, 'about');
         this.logoTitle = new Component('h1', 'header-wrap__logo-wrap__title', 'Vashchayeva Maryia');
 
         this.nav = new Component('nav', 'header-wrap__nav', '');
@@ -28,14 +30,18 @@ export class Header extends Component {
             if (i === 0) {
                 li.node.classList.add('active-nav-item');
             }
-            
+
             this.nav.node.append(li.node);
         });
+        this.showHideContacts = showHideContacts;
         this.contacts = new Component('li', 'contacts-nav-item', 'Contacts');
+        this.contacts.node.onclick = () => this.showHideContactsOnClick();
         this.nav.node.append(this.contacts.node);
-        
+
         this.logoWrap.node.append(this.logo.node, this.logoTitle.node);
         this.node.append(this.logoWrap.node, this.nav.node);
+
+        this.isShowContacts = false;
     }
 
     navToSectionOnclick = (e, name) => {
@@ -47,6 +53,29 @@ export class Header extends Component {
         this.navList.forEach(el => el.classList.remove('active-nav-item'));
         li.classList.add('active-nav-item');
         this.changeSection(name);
+        if (this.isShowContacts) {
+            this.hideContactsItemView();
+        }
+    }
+
+    showHideContactsOnClick = () => {
+        this.showHideContacts();
+        if (this.isShowContacts) {
+            this.hideContactsItemView();
+        } else {
+            this.showContactsItemView();
+        }
+    }
+
+    showContactsItemView() {
+        this.contacts.node.textContent = 'Close';
+        this.isShowContacts = true;
+
+    }
+
+    hideContactsItemView() {
+        this.isShowContacts = false;
+        this.contacts.node.textContent = 'Contacts';
     }
 
     destroy() {
