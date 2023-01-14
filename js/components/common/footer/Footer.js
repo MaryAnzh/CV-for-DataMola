@@ -4,7 +4,7 @@ export class Footer {
     constructor(){
         const footer = document.createElement('div');
         footer.classList.add('footer-wrap');
-        footer.textContent = 'Footer work';
+        footer.textContent = '2022, Vashchayeva Maryia';
         this.node = footer;
     }
 }
