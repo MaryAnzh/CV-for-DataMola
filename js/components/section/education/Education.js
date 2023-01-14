@@ -34,7 +34,7 @@ export class Education extends Component {
         this.hightEducation = new Component('div', 'education__info__hight');
         this.curse = new Component('div', 'education__info__curses');
         const hightEducationImgWrap = new Component('div', 'education__info__hight__img-wrap');
-        const hightEducationImg = new Component('img', 'education__info__hight__img-wrap__img', '', { alt: 'university', src: '../../../../assets/png/university.png' });
+        const hightEducationImg = new Component('img', 'education__info__hight__img-wrap__img', '', { alt: 'university', src: './assets/png/university.png' });
         const hightEducationInfo = new Component('div', 'education__info__hight__info');
         const hightTitle = new Component('h4', 'education__info__hight__info__title ', 'Hight Education');
         const university = new Component('h6', 'education__info__hight__info__university', 'Business of BSU');
