@@ -39,7 +39,7 @@ export class Header extends Component {
         this.contacts = new Component('li', 'contacts-nav-item', 'Contacts');
         this.contacts.node.onclick = () => this.showHideContactsOnClick();
         this.nav.node.append(this.contacts.node);
-        this.burger = new Burger();
+        this.burger = new Burger(sectionList);
 
         this.logoWrap.node.append(this.logo.node, this.logoTitle.node);
         this.node.append(this.logoWrap.node, this.nav.node, this.burger.node);

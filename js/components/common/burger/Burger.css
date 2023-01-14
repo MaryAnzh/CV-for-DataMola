@@ -32,4 +32,46 @@
         border-radius: 2px;
         background: var(--mainColor);
     }
+
+    .burger__nav-wrap {
+        position: fixed;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100vh;
+        display: flex;
+        justify-content: flex-end;
+        z-index: 4;
+    }
+
+    .burger__nav-wrap__nav {
+
+        height: fit-content;
+        list-style: none;
+        padding: 20px 30px;
+        background: white;
+        border-radius: 4px;
+        box-shadow: -2px 2px 4px rgba(170, 169, 169, 0.5);
+        transition: .3s;
+        z-index: 5;
+    }
+
+    .burger__nav-wrap__nav__item {
+        width: 100%;
+        padding: 0 6px;
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 1.6em;
+        line-height: 1.6;
+        color: var(--mainColorDark1);
+        text-transform: uppercase;
+        border-bottom: 1px solid var(--mainColor);
+    }
+
+    .burger__nav-wrap__nav__item:last-child {
+        border: none;
+    }
+
+    .burger__nav-wrap__nav__item:hover {
+        background: var(--mainColorLight2);
+    }
 }
