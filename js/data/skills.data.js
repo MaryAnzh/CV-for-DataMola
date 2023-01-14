@@ -15,7 +15,7 @@ export const skills = [
     {
         title: 'LANGUAGES / FRAMEWORKS',
         icon: progSVG,
-        set: ['javascript', 'typescript', 'Angular']
+        set: ['JavaScript', 'TypeScript', 'angular']
     },
     {
         title: 'TOOLS',
