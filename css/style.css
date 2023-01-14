@@ -45,6 +45,9 @@ html {
 
 .main__wrapper {
     width: 100%;
+    height: -webkit-fill-available;
+    display: flex;
+    justify-content: center;
 }
 
 .footer {
