@@ -21,7 +21,7 @@ export class Skills extends Component {
 
             group.set.forEach(name => {
                 const icon = new Component('div', 'skills__cards-wrap__card__icons__icon');
-                const iconLink = name === 'Adobe Illustrator' ? 'Ai' : name;
+                const iconLink = name === 'Adobe Illustrator' ? 'ai' : name;
                 icon.node.style.backgroundImage = `url(./assets/png/web-skills/${iconLink.toLowerCase()}.png)`;
                 iconsWrap.node.append(icon.node);
             });
