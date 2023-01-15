@@ -31,12 +31,14 @@ export class App {
         this.sectionMap = new Map([
             ['about', About],
             ['skills', Skills],
-           
+            // ['projects', Projects],
             ['education', Education],
+            ['slider', Code],
+            // ['languages', Languages],
         ]);
         this.sectionList = [];
         this.sectionMap.forEach((el, key) => this.sectionList.push(key));
-        this.currentSectionName = this.sectionList[0];
+        this.currentSectionName = this.sectionList[3];
         this.currentSectionComponent = null;
         this.isContactsShow = false;
     }
