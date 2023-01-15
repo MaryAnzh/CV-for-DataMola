@@ -1,0 +1,65 @@
+@import 'util/reset.css';
+@import 'util/variable.css';
+@import 'components.css';
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+.cv {
+    width: 100%;
+    color: var(--mainColorFont);
+    font-family: Poppins, Arial, Helvetica, sans-serif;
+    font-weight: 100;
+    font-size: 1em;
+    line-height: 1.8;
+}
+
+.wrapper {
+    width: 100%;
+    min-height: 100vh;
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    color: var(--mainColor);
+}
+
+.header {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.main {
+    width: 100%;
+    height: -webkit-fill-available;
+    position: relative;
+    overflow-x: hidden;
+}
+
+.main__wrapper {
+    width: 100%;
+    height: -webkit-fill-available;
+    display: flex;
+    justify-content: center;
+}
+
+.footer {
+    width: 100%;
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    background: var(--mainColor);
+}
+
+@media (max-width: 719px) {
+    .main {
+        height: fit-content;
+    }
+}

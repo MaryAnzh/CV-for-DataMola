@@ -1,0 +1,9 @@
+:root {
+    --mainColor: #89B9C5;
+    --mainColorLight1: #C1DEE2;
+    --mainColorLight2: #DDE7DC;
+    --mainColorDark1: #417D95;
+    --mainColorDark2: #244A57;
+    --grayBackground: #ededed;
+    --baseBorderRadius: 4px;
+}

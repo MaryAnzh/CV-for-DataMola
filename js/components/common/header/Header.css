@@ -1,0 +1,122 @@
+.header-wrap {
+    max-width: 1200px;
+    width: 100%;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: white;
+    transition: .3s;
+}
+
+.header-wrap__logo-wrap {
+    width: fit-content;
+    display: flex;
+}
+
+.header-wrap__logo-wrap__logo {
+    width: calc(72px/2);
+    height: calc(42px/2);
+    cursor: pointer;
+    transition: .3s;
+}
+
+.logo-svg {
+    fill: none;
+    stroke: var(--mainColor);
+    stroke-width: 8;
+    stroke-linecap: square;
+    stroke-linejoin: round;
+    stroke-miterlimit: 10;
+}
+
+.logo-svg:hover {
+    stroke: var(--mainColorDark1);
+}
+
+.header-wrap__logo-wrap__title {
+    padding-left: 10px;
+    font-family: Open Sans, sans-serif;
+    font-size: 24px;
+    font-weight: 600;
+    letter-spacing: 0;
+}
+
+.header-wrap__nav {
+    max-width: 600px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    list-style: none;
+}
+
+.header-wrap__nav__item {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 0.9em;
+    font-weight: 500;
+    color: var(--mainColorDark1);
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: .3s;
+}
+
+.header-wrap__nav__item:hover {
+    color: var(--mainColorDark2);
+    text-decoration: underline;
+}
+
+.active-nav-item {
+    font-weight: 600;
+    color: var(--mainColorDark2);
+    pointer-events: none;
+}
+
+.contacts-nav-item {
+    min-width: 90px;
+    width: fit-content;
+    padding: 5px 10px;
+    text-align: center;
+    color: white;
+    background: var(--mainColor);
+    border-radius: var(--baseBorderRadius);
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 0.8em;
+    font-weight: 500;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: .3s;
+}
+
+.contacts-nav-item:hover {
+    background: var(--mainColorDark1);
+    box-shadow: 2px 2px 4px rgba(gray, 0.4);
+}
+
+.contacts-nav-item:active {
+    background: var(--mainColorDark2);
+    box-shadow: none;
+
+}
+
+@media (max-width: 960px) {
+
+    .header-wrap {
+        flex-direction: column;
+        align-items: flex-end;
+    }
+
+    .header-wrap__logo-wrap {
+        align-self: start;
+        margin-bottom: 10px;
+    }
+
+}
+
+@media (max-width: 600px) {
+
+    .header-wrap__nav {
+        display: none;
+    }
+
+}
