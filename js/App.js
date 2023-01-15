@@ -36,7 +36,7 @@ export class App {
         ]);
         this.sectionList = [];
         this.sectionMap.forEach((el, key) => this.sectionList.push(key));
-        this.currentSectionName = this.sectionList[3];
+        this.currentSectionName = this.sectionList[0];
         this.currentSectionComponent = null;
         this.isContactsShow = false;
     }
