@@ -15,6 +15,7 @@ export class Header extends Component {
     isShowContacts;
     burger;
     burgerNav;
+    isBurgerShow;
 
     constructor(changeSection, sectionList, showHideContacts) {
         super('div', 'header-wrap', '');
@@ -41,13 +42,14 @@ export class Header extends Component {
         this.contacts = new Component('li', 'contacts-nav-item', 'Contacts');
         this.contacts.node.onclick = () => this.showHideContactsOnClick();
         this.nav.node.append(this.contacts.node);
-        this.burger = new Burger();
+        this.burger = new Burger(this.showHideBurnerNav);
         this.burgerNav = new BurgerNav(sectionList);
 
         this.logoWrap.node.append(logo.node, this.logoTitle.node);
         this.node.append(this.burgerNav.node, this.logoWrap.node, this.nav.node, this.burger.node);
 
         this.isShowContacts = false;
+        this.isBurgerShow = false;
     }
 
     navToSectionOnclick = (e, name) => {
@@ -82,6 +84,25 @@ export class Header extends Component {
     hideContactsItemView() {
         this.isShowContacts = false;
         this.contacts.node.textContent = 'Contacts';
+    }
+
+    showBurgerNav = () => {
+        this.burgerNav.showBurgerNav();
+    }
+
+    hideBurgerNav = () => {
+        this.burgerNav.hideBurgerNav();
+    }
+
+    showHideBurnerNav = () => {
+        if (!this.isBurgerShow) {
+            this.showBurgerNav();
+            this.isBurgerShow = true;
+        } else {
+            this.hideBurgerNav();
+            this.isBurgerShow = false;
+
+        }
     }
 
     destroy() {

@@ -3,9 +3,9 @@ import { Component } from "../../../util/component.js";
 export class Burger extends Component {
     lines = [];
 
-    constructor() {
+    constructor(showHideBurnerNav) {
         super('div', 'burger');
-        this.node.onclick = () => this.showBurgerOnClick();
+        this.node.onclick = () => showHideBurnerNav();
         const linesCount = 3;
         for (let i = 0; i < linesCount; i++) {
             const line = new Component('div', 'burger__line');

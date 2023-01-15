@@ -13,4 +13,29 @@ export class BurgerNav extends Component {
             this.navList.node.append(li.node);
         });
     }
+
+    showBurgerNav = async () => {
+        this.node.style.display = 'flex';
+        this.navList.node.animate(
+            { transform: ['translateX(-110%)', 'translateX(0%)'] },
+            {
+                duration: 300,
+                easing: 'linear',
+                fill: 'forwards',
+            }
+        );
+    }
+
+    hideBurgerNav = async () => {
+        const animate = this.navList.node.animate(
+            { transform: ['translateX(0%)', 'translateX(-110%)'] },
+            {
+                duration: 300,
+                easing: 'linear',
+                fill: 'forwards',
+            }
+        );
+        await animate.finished;
+        this.node.style.display = 'none';
+    }
 }
