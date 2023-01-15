@@ -1,7 +1,9 @@
 @import '../js/components/common/header/Header.css';
 @import '../js/components/common/footer/Footer.css';
+@import '../js/components/common/burger/Burger.css';
 @import '../js/components/section/about/About.css';
 @import '../js/components/section/contacts/Contacts.css';
 @import '../js/components//section/contacts/Contacts.css';
 @import '../js/components/section/skills/Skills.css';
 @import '../js/components/section/education/Education.css';
+@import '../js/components/common//burger-nav/BurgerNav.css';

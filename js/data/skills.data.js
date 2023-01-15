@@ -15,11 +15,11 @@ export const skills = [
     {
         title: 'LANGUAGES / FRAMEWORKS',
         icon: progSVG,
-        set: ['JavaScript', 'TypeScript', 'Angular']
+        set: ['JavaScript', 'TypeScript', 'angular']
     },
     {
         title: 'TOOLS',
         icon: toolsSVG,
-        set: ['git', 'WebPack', 'Adobe Illustrator'],
+        set: ['git', 'webpack', 'Adobe Illustrator'],
     }
 ]
