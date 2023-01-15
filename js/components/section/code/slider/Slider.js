@@ -1,4 +1,4 @@
-import { Component } from "../../../util/component.js";
+import { Component } from "../../../../util/component.js";
 
 export class Slider extends Component {
     view;

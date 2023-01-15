@@ -1,5 +1,5 @@
 import { Component } from "../../../util/component.js";
-import { Slider } from "../../smart/slider/slider.js";
+import { Slider } from "./slider/Slider.js";
 
 export class Code extends Component {
     title;
