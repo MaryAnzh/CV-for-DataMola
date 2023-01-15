@@ -31,10 +31,8 @@ export class App {
         this.sectionMap = new Map([
             ['about', About],
             ['skills', Skills],
-            // ['projects', Projects],
             ['education', Education],
             ['slider', Code],
-            // ['languages', Languages],
         ]);
         this.sectionList = [];
         this.sectionMap.forEach((el, key) => this.sectionList.push(key));
