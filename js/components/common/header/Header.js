@@ -1,6 +1,7 @@
 import { Component } from "../../../util/component.js";
 import { logo } from "../../../../assets/svg/logo.js";
 import { Burger } from "../burger/Burger.js";
+import { BurgerNav } from "../burger-nav/BurgerNav.js";
 
 export class Header extends Component {
     logoWrap;
@@ -13,6 +14,7 @@ export class Header extends Component {
     showHideContacts;
     isShowContacts;
     burger;
+    burgerNav;
 
     constructor(changeSection, sectionList, showHideContacts) {
         super('div', 'header-wrap', '');
@@ -39,10 +41,11 @@ export class Header extends Component {
         this.contacts = new Component('li', 'contacts-nav-item', 'Contacts');
         this.contacts.node.onclick = () => this.showHideContactsOnClick();
         this.nav.node.append(this.contacts.node);
-        this.burger = new Burger(sectionList);
+        this.burger = new Burger();
+        this.burgerNav = new BurgerNav(sectionList);
 
-        this.logoWrap.node.append(this.logo.node, this.logoTitle.node);
-        this.node.append(this.logoWrap.node, this.nav.node, this.burger.node);
+        this.logoWrap.node.append(logo.node, this.logoTitle.node);
+        this.node.append(this.burgerNav.node, this.logoWrap.node, this.nav.node, this.burger.node);
 
         this.isShowContacts = false;
     }
